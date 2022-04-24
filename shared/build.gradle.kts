@@ -1,6 +1,7 @@
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
+    kotlin("plugin.serialization") version "1.4.10"
 }
 
 kotlin {
@@ -16,21 +17,58 @@ kotlin {
         }
     }
 
+    val koinVersion = "3.1.2"
+    val ktorVersion = "1.5.0"
+    val serializationVersion = "1.0.0-RC"
+    val coroutinesVersion = "1.6.0"
+
     sourceSets {
-        val commonMain by getting
+
+        val commonMain by getting {
+            dependencies {
+
+                // Network (Ktor)
+                implementation("io.ktor:ktor-client-core:$ktorVersion")
+                implementation("io.ktor:ktor-client-serialization:$ktorVersion")
+
+                // Async (Kotlinx Coroutines)
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
+
+                // Serialization (Kotlinx Serialization)
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:$serializationVersion")
+
+                // DI (Koin)
+                implementation("io.insert-koin:koin-core:$koinVersion")
+            }
+        }
+
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test-common"))
                 implementation(kotlin("test-annotations-common"))
             }
         }
-        val androidMain by getting
+
+        val androidMain by getting {
+            dependencies {
+
+                // Async (Kotlinx Coroutines)
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion")
+
+                // Network (Ktor)
+                implementation("io.ktor:ktor-client-android:$ktorVersion")
+
+                // DI (Koin)
+                implementation("io.insert-koin:koin-android:$koinVersion")
+            }
+        }
         val androidTest by getting {
             dependencies {
                 implementation(kotlin("test-junit"))
                 implementation("junit:junit:4.13.2")
             }
         }
+
         val iosX64Main by getting
         val iosArm64Main by getting
         //val iosSimulatorArm64Main by getting
