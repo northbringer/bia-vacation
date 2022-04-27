@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/loggingScreenRootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".presentation.loginScreen.LoginFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="91dp"
+        android:layout_marginTop="134dp"
+        android:text="@string/login_screen_welcome_label"
+        android:textColor="@color/brand"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/CredentialsTextInputLayoutStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="38dp"
+        android:layout_marginTop="36dp"
+        android:hint="@string/login_screen_username_hint">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/login_edit_text_username"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:paddingVertical="11dp"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:textAppearance="@style/CredentialsTextFieldsAppearance" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/CredentialsTextInputLayoutStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="38dp"
+        android:layout_marginTop="32dp"
+        android:hint="@string/login_screen_password_hint"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/color_password_toggle">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/login_edit_text_password"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:paddingVertical="11dp"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            android:textAppearance="@style/CredentialsTextFieldsAppearance" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_login"
+        android:layout_width="148dp"
+        android:layout_height="38dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="44dp"
+        android:fontFamily="@font/roboto_regular"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:paddingVertical="10dp"
+        android:text="@string/login_screen_login_button_text"
+        android:textAllCaps="false"
+        android:textSize="14sp"
+        app:cornerRadius="6dp" />
+
+    <TextView
+        android:id="@+id/login_button_forgot_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="24dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="@font/roboto_regular"
+        android:text="@string/login_screen_forgot_password_button_text"
+        android:textColor="@color/brand"
+        android:textSize="14sp" />
+
+</LinearLayout>

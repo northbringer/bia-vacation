@@ -1,9 +1,59 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <!-- Base application theme. -->
+    <style name="Theme.BIA" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/brand</item>
+        <item name="colorPrimaryVariant">@color/white</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/white</item>
+        <item name="colorSecondaryVariant">@color/white</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+
+<!--        <item name="popupMenuStyle">@style/popupMenu</item>--> <!-- uncomment this -->
+    </style>
+
+
+    <!-- Splash screen theme style -->
+    <style name="SplashTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimaryVariant">@color/white</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:windowBackground">@drawable/splash_screen_background</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+
+    <!-- LoginFragment Credentials Text Input style -->
+    <style name="CredentialsTextInputLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:textColorHint">@color/lightGray</item>
+        <item name="boxStrokeColor">@color/outline_box_color</item>
+        <item name="boxCornerRadiusTopStart">6dp</item>
+        <item name="boxCornerRadiusTopEnd">6dp</item>
+        <item name="boxCornerRadiusBottomStart">6dp</item>
+        <item name="boxCornerRadiusBottomEnd">6dp</item>
+    </style>
+
+
+    <!-- LoginFragment Credentials Text Appearance style -->
+    <style name="CredentialsTextFieldsAppearance">
+        <item name="paddingStart">16dp</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:ems">25</item>
+    </style>
+
+
+    <!-- TabLayout text size -->
+    <style name="TabLayoutTextAppearance">
+        <item name="android:textSize">12sp</item>
     </style>
 
 </resources>

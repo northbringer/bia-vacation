@@ -1,13 +1,14 @@
 plugins {
     id("com.android.application")
     kotlin("android")
+    id("kotlin-android")
 }
 
 android {
     compileSdk = 31
     defaultConfig {
         applicationId = "ru.northbringer.bia_vacation.android"
-        minSdk = 21
+        minSdk = 23
         targetSdk = 31
         versionCode = 1
         versionName = "1.0"
@@ -20,6 +21,7 @@ android {
 }
 
 dependencies {
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
     val lifecycleVersion = "2.4.1"
     val koinVersion = "3.1.2"
     val navigationVersion = "2.4.2"
