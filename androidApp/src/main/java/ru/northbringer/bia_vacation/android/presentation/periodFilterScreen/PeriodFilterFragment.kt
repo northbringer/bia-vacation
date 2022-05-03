@@ -6,8 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Toast
+import androidx.core.util.Pair
+import com.google.android.material.datepicker.MaterialDatePicker
 import ru.northbringer.bia_vacation.android.R
-
+import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener
+import java.lang.String.format
+import java.text.DateFormat
+import java.util.*
 
 class PeriodFilterFragment : Fragment() {
 
@@ -26,6 +32,24 @@ class PeriodFilterFragment : Fragment() {
 
         initViews(view)
         initListeners()
+        val dateRangePicker =
+            MaterialDatePicker.Builder.dateRangePicker()
+                .setTitleText("Выберите даты")
+                .build()
+
+        dateRangePicker.show(childFragmentManager, "tag");
+        dateRangePicker.addOnPositiveButtonClickListener {
+            val startDate = it.first
+            val endDate = it.second
+            val startDateString = android.text.format.DateFormat.format(
+                "dd/MM/yyyy",
+                Date(startDate)
+            ).toString()
+            val endDateString =
+                android.text.format.DateFormat.format("dd/MM/yyyy", Date(endDate)).toString()
+            val date = "Start: " + startDateString + " End: " + endDateString;
+            Toast.makeText(requireContext(), date, Toast.LENGTH_SHORT).show();
+        }
     }
 
     private fun initViews(view: View) {

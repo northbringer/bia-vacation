@@ -17,6 +17,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/brand" />
 
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"

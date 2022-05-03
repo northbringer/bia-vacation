@@ -1,32 +1,37 @@
 package ru.northbringer.bia_vacation.android.di
 
 import org.koin.dsl.module
-import ru.northbringer.bia_vacation.loginScreen.data.datasource.RemoteUserApi
+import ru.northbringer.bia_vacation.diagramScreen.domain.usecase.GetVacationsUseCase
+
+/*import ru.northbringer.bia_vacation.loginScreen.data.datasource.RemoteUserApi
 import ru.northbringer.bia_vacation.loginScreen.data.repository.UserSignInRepositoryImpl
 import ru.northbringer.bia_vacation.loginScreen.domain.repository.UserSignInRepository
 import ru.northbringer.bia_vacation.loginScreen.domain.usecase.TrySignInUseCase
 import ru.northbringer.bia_vacation.loginScreen.domain.usecase.ValidatePasswordUseCase
-import ru.northbringer.bia_vacation.loginScreen.domain.usecase.ValidateUserLoginUseCase
+import ru.northbringer.bia_vacation.loginScreen.domain.usecase.ValidateUserLoginUseCase*/
 
 val sharedModule = module {
 
     // ======= Domain =========================================================
 
-
+    //DiagramFragment
+    factory<GetVacationsUseCase> {
+        GetVacationsUseCase()
+    }
     // LoginFragment
-    factory<ValidateUserLoginUseCase> {
+    /*factory<ValidateUserLoginUseCase> {
         ValidateUserLoginUseCase()
-    }
+    }*/
 
     // LoginFragment
-    factory<ValidatePasswordUseCase> {
+    /*factory<ValidatePasswordUseCase> {
         ValidatePasswordUseCase()
-    }
+    }*/
 
     // LoginFragment
-    factory<TrySignInUseCase> {
+    /*factory<TrySignInUseCase> {
         TrySignInUseCase(userSignInRepository = get())
-    }
+    }*/
 
     // ======= Domain =========================================================
 
@@ -34,15 +39,17 @@ val sharedModule = module {
 
     // ======= Data ===========================================================
 
-    // LoginFragment
-    single<UserSignInRepository> {
-        UserSignInRepositoryImpl(remoteUserApi = get())
-    }
+
 
     // LoginFragment
-    single<RemoteUserApi> {
+   /* single<UserSignInRepository> {
+        UserSignInRepositoryImpl(remoteUserApi = get())
+    }*/
+
+    // LoginFragment
+    /*single<RemoteUserApi> {
         RemoteUserApi.create()
-    }
+    }*/
 
     // ======= Data ===========================================================
 

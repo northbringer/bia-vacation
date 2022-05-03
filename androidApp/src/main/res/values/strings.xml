@@ -6,7 +6,7 @@
     <!-- TabLayout -->
     <string name="tabItemMain">Главная</string>
     <string name="tabItemNewVacation">Новый отпуск</string>
-    <string name="tabItemDiagram">Главная</string>
+    <string name="tabItemDiagram">График</string>
 
 
     <!-- [Fragment] SplashScreen -->

@@ -18,5 +18,9 @@
     <color name="greenBackgroundLight">#D4EFDF</color>
     <color name="orangeBackgroundLight">#FCEBDB</color>
     <color name="orangeTextColor">#F2994A</color>
+    <color name="greySeparatorColor">#F2F2F2</color>
+    <color name="greyMonthTextColor">#BDBDBD</color>
+
+    <color name="vacationBlue">#4D2D9CDB</color>
 
 </resources>
