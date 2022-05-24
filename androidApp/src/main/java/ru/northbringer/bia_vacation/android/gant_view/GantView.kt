@@ -12,9 +12,9 @@ import androidx.core.content.ContextCompat
 import androidx.core.graphics.applyCanvas
 import androidx.core.graphics.createBitmap
 import androidx.core.graphics.withTranslation
-import java.time.LocalDate
 import android.graphics.Bitmap
 import androidx.core.content.res.ResourcesCompat
+import kotlinx.datetime.*
 import ru.northbringer.bia_vacation.android.R
 import ru.northbringer.bia_vacation.diagramScreen.domain.usecase.Task
 
@@ -212,12 +212,12 @@ class GantView @JvmOverloads constructor(
             separatorsPaint
         )
 
-        shadowPaint.setShadowLayer(15f, 0f, 13f, Color.GRAY)
+        shadowPaint.setShadowLayer(8f, 0f, 4f, Color.GRAY)
         drawRect(
             0f,
-            rowHeight.toFloat() - 3f,
+            rowHeight.toFloat(),
             contentWidth.toFloat(),
-            rowHeight.toFloat() + 3f,
+            rowHeight.toFloat() + 1f,
             shadowPaint
         )
     }
@@ -231,7 +231,7 @@ class GantView @JvmOverloads constructor(
             Log.i("TAG", daysPaint.measureText(periodName).toString())
             val nameX =
                 columnWidth * (index + 0.5f) - daysPaint.measureText(periodName) / 2 + monthWidth
-            if (LocalDate.now().dayOfMonth == periodName.toInt()) {
+            if (Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault()).dayOfMonth == index+1) {
                 drawCircle(
                     monthWidth + columnWidth * (index + 0.5f),
                     rowHeight / 2f,
@@ -258,8 +258,8 @@ class GantView @JvmOverloads constructor(
         var count = 0
         var currentRow = 0
         for (i in 1..12) {
-            if (count < uiTasks.size && uiTasks[count].task.dateStart.monthValue == i) {
-                while (count < uiTasks.size && uiTasks[count].task.dateStart.monthValue == i) {
+            if (count < uiTasks.size && uiTasks[count].task.dateStart.monthNumber == i) {
+                while (count < uiTasks.size && uiTasks[count].task.dateStart.monthNumber == i) {
                     val uiTask = uiTasks[count]
                     uiTask.updateRect(currentRow)
                     val taskRect = uiTask.rect
@@ -323,7 +323,7 @@ class GantView @JvmOverloads constructor(
     @SuppressLint("NewApi")
     private fun getDate(input: LocalDate): String {
         var out = input.dayOfMonth.toString() + " "
-        when (input.monthValue) {
+        when (input.monthNumber) {
             1 -> out += "января"
             2 -> out += "февраля"
             3 -> out += "марта"
@@ -398,8 +398,8 @@ class GantView @JvmOverloads constructor(
 
     private fun initPeriod(): Map<PeriodType, List<String>> {
         return PeriodType.values().associateWith { periodType ->
-            val startDate = LocalDate.of(2022, 1, 1)//today.minusMonths(MONTH_COUNT + 1)
-            val endDate = LocalDate.of(2022, 1, 31)//today.plusMonths(MONTH_COUNT + 6)
+            val startDate = LocalDate(2022, 1, 1)//today.minusMonths(MONTH_COUNT + 1)
+            val endDate = LocalDate(2022, 1, 31)//today.plusMonths(MONTH_COUNT + 6)
             var lastDate = startDate
             mutableListOf<String>().apply {
                 while (lastDate <= endDate) {

@@ -14,4 +14,9 @@
     <dimen name="gant_task_text_horizontal_margin">12dp</dimen>
     <dimen name="gant_day_circle_radius">16dp</dimen>
     <dimen name="pager_height">50dp</dimen>
+
+    <!-- Common -->
+
+    <dimen name="title_left_margin">20dp</dimen>
+    <dimen name="title_top_margin">24dp</dimen>
 </resources>

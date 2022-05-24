@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.northbringer.bia_vacation.android.gant_view.GantView
 import ru.northbringer.bia_vacation.android.R
+import ru.northbringer.bia_vacation.data.KmmSharedPref
 
 class DiagramFragment : Fragment() {
 
@@ -33,7 +34,7 @@ class DiagramFragment : Fragment() {
 
         initViews(view)
         initListeners()
-        viewModel.getVacation().observe(this, {
+        viewModel.vacations.observe(this, {
             diagramGant.setTasks(it)
         })
         viewModel.loadVacations()
@@ -48,5 +49,7 @@ class DiagramFragment : Fragment() {
         diagramShowFiltersButton.setOnClickListener {
             findNavController().navigate(R.id.action_viewPagerFragment_to_filterFragment)
         }
+
+
     }
 }

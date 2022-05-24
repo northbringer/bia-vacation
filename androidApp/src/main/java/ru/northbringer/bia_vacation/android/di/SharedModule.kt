@@ -1,7 +1,10 @@
 package ru.northbringer.bia_vacation.android.di
 
+import org.koin.android.ext.koin.androidApplication
 import org.koin.dsl.module
+import ru.northbringer.bia_vacation.android.MainActivity
 import ru.northbringer.bia_vacation.diagramScreen.domain.usecase.GetVacationsUseCase
+import ru.northbringer.bia_vacation.filterScreen.domain.usecase.GetStartDateUseCase
 
 /*import ru.northbringer.bia_vacation.loginScreen.data.datasource.RemoteUserApi
 import ru.northbringer.bia_vacation.loginScreen.data.repository.UserSignInRepositoryImpl
@@ -18,6 +21,11 @@ val sharedModule = module {
     factory<GetVacationsUseCase> {
         GetVacationsUseCase()
     }
+
+        factory<GetStartDateUseCase> {
+            GetStartDateUseCase(androidApplication())
+        }
+
     // LoginFragment
     /*factory<ValidateUserLoginUseCase> {
         ValidateUserLoginUseCase()

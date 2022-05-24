@@ -17,5 +17,19 @@
     <string name="login_screen_login_button_text">Войти</string>
     <string name="login_screen_forgot_password_button_text">Забыли пароль?</string>
 
+    <!-- [Fragment] FilterScreen -->
+    <string name="filter_screen_apply">Применить</string>
+    <string name="filter_screen_reset">Сбросить</string>
+
+    <!-- [Fragment] DiagramScreen -->
+    <string name="diagram_screen_title">График отпусков</string>
+
+    <!-- [Fragment] EmployeeFilterScreen -->
+    <string name="employee_filter_screen_title">Сотрудники</string>
+    <string name="employee_filter_screen_edit_text_hint">Введите имя сотрудника</string>
+    <string name="employee_filter_screen_selectAll_textView">Выбрать всех</string>
+
+    <!-- [Fragment] PeriodFilterScreen -->
+    <string name="period_filter_screen_title">Период</string>
 
 </resources>

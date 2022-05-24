@@ -21,6 +21,7 @@ kotlin {
     val ktorVersion = "1.5.0"
     val serializationVersion = "1.0.0-RC"
     val coroutinesVersion = "1.6.0"
+    val dateTimeVersion = "0.2.1"
 
     sourceSets {
 
@@ -30,6 +31,7 @@ kotlin {
                 // Network (Ktor)
                 implementation("io.ktor:ktor-client-core:$ktorVersion")
                 implementation("io.ktor:ktor-client-serialization:$ktorVersion")
+                implementation("io.ktor:ktor-client-auth:$ktorVersion")
 
                 // Async (Kotlinx Coroutines)
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
@@ -39,6 +41,9 @@ kotlin {
 
                 // DI (Koin)
                 implementation("io.insert-koin:koin-core:$koinVersion")
+
+                //Date and Time (kotlinx DateTime)
+                implementation("org.jetbrains.kotlinx:kotlinx-datetime:$dateTimeVersion")
             }
         }
 
@@ -60,6 +65,9 @@ kotlin {
 
                 // DI (Koin)
                 implementation("io.insert-koin:koin-android:$koinVersion")
+
+                //Date and Time (kotlinx DateTime)
+                implementation("org.jetbrains.kotlinx:kotlinx-datetime:$dateTimeVersion")
             }
         }
         val androidTest by getting {

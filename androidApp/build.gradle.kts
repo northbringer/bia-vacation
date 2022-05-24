@@ -26,6 +26,7 @@ dependencies {
     val koinVersion = "3.1.2"
     val navigationVersion = "2.4.2"
     val coroutinesVersion = "1.6.0"
+    val dateTimeVersion = "0.2.1"
 
     implementation(project(":shared"))
 
@@ -49,4 +50,8 @@ dependencies {
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:${coroutinesVersion}")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:${coroutinesVersion}")
+
+    //Date and Time (kotlinx DateTime)
+    implementation("org.jetbrains.kotlinx:kotlinx-datetime:$dateTimeVersion")
+
 }

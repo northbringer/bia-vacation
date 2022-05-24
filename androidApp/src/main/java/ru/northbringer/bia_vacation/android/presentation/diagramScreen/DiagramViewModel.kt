@@ -8,13 +8,10 @@ import ru.northbringer.bia_vacation.diagramScreen.domain.usecase.Task
 
 class DiagramViewModel(private val getVacationsUseCase: GetVacationsUseCase) : ViewModel() {
 
-    private var vacations = MutableLiveData<MutableList<Task>>()
-
-    fun getVacation(): LiveData<MutableList<Task>> {
-        return vacations
-    }
+    private var _vacations = MutableLiveData<MutableList<Task>>()
+    var vacations: LiveData<MutableList<Task>> = _vacations
 
     fun loadVacations() {
-        vacations.value = getVacationsUseCase.execute()
+        _vacations.value = getVacationsUseCase.execute()
     }
 }

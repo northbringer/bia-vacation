@@ -1,63 +1,66 @@
 package ru.northbringer.bia_vacation.diagramScreen.domain.usecase
 
-import android.annotation.SuppressLint
-import java.time.LocalDate
+import io.ktor.utils.io.*
+import kotlinx.datetime.DateTimeUnit
+import kotlinx.datetime.LocalDate
+import kotlinx.datetime.minus
+import kotlinx.datetime.plus
+
 
 class GetVacationsUseCase {
 
-    @SuppressLint("NewApi")
     fun execute(): MutableList<Task> {
         val tasks: MutableList<Task> = mutableListOf(
             Task(
                 name = "Вася П",
-                dateStart = LocalDate.of(2022, 4, 10),
-                dateEnd = LocalDate.of(2022, 4, 29)
+                dateStart = LocalDate(2022, 4, 10),
+                dateEnd = LocalDate(2022, 4, 29)
             ) ,
             Task(
                 name = "Дима Н",
-                dateStart = LocalDate.of(2022, 5, 10),
-                dateEnd = LocalDate.of(2022, 5, 12)
+                dateStart = LocalDate(2022, 5, 10),
+                dateEnd = LocalDate(2022, 5, 12)
             ),
             Task(
                 name = "Анжела Х",
-                dateStart = LocalDate.of(2022, 4, 1),
-                dateEnd = LocalDate.of(2022, 4, 10)
+                dateStart = LocalDate(2022, 4, 1),
+                dateEnd = LocalDate(2022, 4, 10)
             ),
             Task(
                 name = "Богдан Б",
-                dateStart = LocalDate.of(2022, 4, 5),
-                dateEnd = LocalDate.of(2022, 4, 10)
+                dateStart = LocalDate(2022, 4, 5),
+                dateEnd = LocalDate(2022, 4, 10)
             ),
             Task(
                 name = "Данил М",
-                dateStart = LocalDate.of(2022, 6, 2),
-                dateEnd = LocalDate.of(2022, 6, 20)
+                dateStart = LocalDate(2022, 6, 2),
+                dateEnd = LocalDate(2022, 6, 20)
             ),
             Task(
                 name = "Артурка П",
-                dateStart = LocalDate.of(2022, 7, 3),
-                dateEnd = LocalDate.of(2022, 7, 5)
+                dateStart = LocalDate(2022, 7, 3),
+                dateEnd = LocalDate(2022, 7, 5)
             ),
 
             Task(
                 name = "Артурка П",
-                dateStart = LocalDate.of(2022, 7, 3),
-                dateEnd = LocalDate.of(2022, 7, 19)
+                dateStart = LocalDate(2022, 7, 3),
+                dateEnd = LocalDate(2022, 7, 19)
             ),
             Task(
                 name = "Артурка П",
-                dateStart = LocalDate.of(2022, 1, 1),
-                dateEnd = LocalDate.of(2022, 1, 20)
+                dateStart = LocalDate(2022, 1, 1),
+                dateEnd = LocalDate(2022, 1, 20)
             ),
             Task(
                 name = "Артурка П",
-                dateStart = LocalDate.of(2022, 1, 2),
-                dateEnd = LocalDate.of(2022, 1, 19)
+                dateStart = LocalDate(2022, 1, 2),
+                dateEnd = LocalDate(2022, 1, 19)
             ),
             Task(
                 name = "Артурка П",
-                dateStart = LocalDate.of(2022, 1, 4),
-                dateEnd = LocalDate.of(2022, 2, 9)
+                dateStart = LocalDate(2022, 1, 4),
+                dateEnd = LocalDate(2022, 2, 9)
             )
         )
         val list: MutableList<Task> = mutableListOf()
@@ -68,16 +71,15 @@ class GetVacationsUseCase {
         return list
     }
 
-    @SuppressLint("NewApi")
     private fun separateRange(task: Task): List<Task> {
         val list: MutableList<Task> = mutableListOf()
         var start = task.dateStart
         val end = task.dateEnd
-        if (start.monthValue != end.monthValue) {
-            while(start.monthValue != end.monthValue) {
-                val newEnd = LocalDate.of(start.year, start.month, start.month.length(start.isLeapYear))
+        if (start.monthNumber != end.monthNumber) {
+            while(start.monthNumber != end.monthNumber) {
+                val newEnd = start.plus(1, DateTimeUnit.MONTH).minus(start.dayOfMonth, DateTimeUnit.DAY)
                 list.add(Task(task.name, start, newEnd))
-                start = newEnd.plusDays(1)
+                start = newEnd.plus(1, DateTimeUnit.DAY)
             }
             list.add(Task(task.name, start, end))
         } else {

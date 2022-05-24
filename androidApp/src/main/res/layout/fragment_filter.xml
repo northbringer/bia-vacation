@@ -31,11 +31,11 @@
         android:id="@+id/filter_button_open_employee_filter"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="20dp"
         android:src="@drawable/ic_arrow"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/filter_textView_selected_period" />
 
     <TextView
         android:id="@+id/filter_textView_period"
@@ -64,5 +64,39 @@
         app:layout_constraintBottom_toBottomOf="@+id/filter_button_open_employee_filter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/filter_button_open_employee_filter" />
+
+    <TextView
+        android:id="@+id/filter_textView_selected_period"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="0"
+        app:layout_constraintEnd_toStartOf="@+id/filter_button_open_period_filter"
+        app:layout_constraintStart_toStartOf="@+id/filter_textView_period"
+        app:layout_constraintTop_toBottomOf="@+id/filter_textView_period" />
+
+    <TextView
+        android:id="@+id/filter_textView_selected_employees"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:singleLine="true"
+        app:layout_constraintEnd_toStartOf="@+id/filter_button_open_employee_filter"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/filter_textView_reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/title_left_margin"
+        android:fontFamily="@font/roboto_regular"
+        android:text="@string/filter_screen_reset"
+        android:textColor="@color/brand"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/filter_button_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/filter_button_back" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
